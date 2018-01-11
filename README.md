@@ -34,7 +34,7 @@ E:\workspaces\e.4.7.2\persist-metadata>mvn clean package -Dno=A001
 
 E:\workspaces\e.4.7.2\persist-metadata>
 ```
-##serverless deploy
+## serverless deploy
 ```
 E:\workspaces\e.4.7.2\persist-metadata>sls deploy --no A001
 Serverless: Packaging service...
