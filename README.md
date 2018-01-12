@@ -3,17 +3,17 @@
 	mvn clean package -Dno=xxx
 	sls deploy --no xxx
 
-	e.g. sls deploy --no A001
+	e.g. sls deploy --no a001
 
 # Invoke
 
-	sls invoke -f put -p event.json --no A001
+	sls invoke -f put -p event.json --no a001
 
 
 # e.g.
 ## maven build
 ```
-E:\workspaces\e.4.7.2\persist-metadata>mvn clean package -Dno=A001
+E:\workspaces\e.4.7.2\persist-metadata>mvn clean package -Dno=a001
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ------------------------------------------------------------------------
@@ -36,7 +36,7 @@ E:\workspaces\e.4.7.2\persist-metadata>
 ```
 ## serverless deploy
 ```
-E:\workspaces\e.4.7.2\persist-metadata>sls deploy --no A001
+E:\workspaces\e.4.7.2\persist-metadata>sls deploy --no a001
 Serverless: Packaging service...
 Serverless: Creating Stack...
 Serverless: Checking Stack create progress...
@@ -50,22 +50,22 @@ Serverless: Checking Stack update progress...
 ...............
 Serverless: Stack update finished...
 Service Information
-service: A001-persist-metadata
+service: a001-persist-metadata
 stage: dev
 region: us-east-1
-stack: A001-persist-metadata-dev
+stack: a001-persist-metadata-dev
 api keys:
   None
 endpoints:
   None
 functions:
-  put: A001-persist-metadata-dev-put
+  put: a001-persist-metadata-dev-put
 
 E:\workspaces\e.4.7.2\persist-metadata>
 ```
 ## Invoke
 ```
-E:\workspaces\e.4.7.2\persist-metadata>sls invoke -f put -p event.json --no A001
+E:\workspaces\e.4.7.2\persist-metadata>sls invoke -f put -p event.json --no a001
 true
 
 E:\workspaces\e.4.7.2\persist-metadata>
