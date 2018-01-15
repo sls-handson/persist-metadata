@@ -66,7 +66,32 @@ E:\workspaces\e.4.7.2\persist-metadata>
 ## Invoke
 ```
 E:\workspaces\e.4.7.2\persist-metadata>sls invoke -f put -p event.json --no a001
-true
+{
+    "userId": "johndoe",
+    "s3Key": "1_happy_face.jpg",
+    "s3Bucket": "wildrydes-riderphotos-johndoe",
+    "collectionId": null,
+    "parallelResult": [
+        {
+            "FaceId": "00f884e1-31d4-5b7f-bcb2-bc91a51d3713",
+            "BoundingBox": {
+                "Width": 0.476666659116745,
+                "Height": 0.7149999737739563,
+                "Left": 0.4977777898311615,
+                "Top": 0.09000000357627869
+            },
+            "ImageId": "fbda5555-463d-5964-acef-035061fb819f",
+            "ExternalImageId": "johndoe",
+            "Confidence": 99.92555236816406
+        },
+        {
+            "thumbnail": {
+                "s3key": "resized-1_happy_face.jpg",
+                "s3bucket": "wildrydes-riderphotos-thumbnails-johndoe"
+            }
+        }
+    ]
+}
 
 E:\workspaces\e.4.7.2\persist-metadata>
 ```

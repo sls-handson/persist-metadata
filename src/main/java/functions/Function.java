@@ -7,8 +7,7 @@ import domain.ImageProcessing;
 import functions.Function.Input;
 import repository.ImageProcessingRepository;
 
-public class Function implements java.util.function.Function<Input, Boolean> {
-
+public class Function implements java.util.function.Function<Input, Input> {
 
 	private final ImageProcessingRepository repository;
 
@@ -18,7 +17,7 @@ public class Function implements java.util.function.Function<Input, Boolean> {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Boolean apply(final Input t) {
+	public Input apply(final Input t) {
 		//	    const dynamoItem = {
 		//	            Username: event.userId,
 		//	            s3key: event.s3Key,
@@ -39,7 +38,6 @@ public class Function implements java.util.function.Function<Input, Boolean> {
 		//	        }).catch(err => {
 		//	            callback(err);
 		//	        })
-		System.out.println(t);
 		final ImageProcessing dynamoItem = new ImageProcessing();
 		dynamoItem.setUsername(t.getUserId());
 		dynamoItem.setS3key(t.getS3Key());
@@ -49,11 +47,11 @@ public class Function implements java.util.function.Function<Input, Boolean> {
 		dynamoItem.setFaceId(String.valueOf(indexDetails.get("FaceId")));
 		dynamoItem.setThumbnail((Map<String, String>) thumbnailDetails.get("thumbnail"));
 		repository.save(dynamoItem);
-		return Boolean.TRUE;
+		return t;
 	}
 
 	public static final class Input {
-		private String userId, s3Key, s3Bucket;
+		private String userId, s3Key, s3Bucket, collectionId;
 		private List<Map<String, Object>> parallelResult;
 
 		public String getS3Key() {
@@ -86,6 +84,14 @@ public class Function implements java.util.function.Function<Input, Boolean> {
 
 		public void setParallelResult(List<Map<String, Object>> parallelResult) {
 			this.parallelResult = parallelResult;
+		}
+
+		public String getCollectionId() {
+			return collectionId;
+		}
+
+		public void setCollectionId(String collectionId) {
+			this.collectionId = collectionId;
 		}
 
 	}
